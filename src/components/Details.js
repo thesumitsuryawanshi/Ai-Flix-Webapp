@@ -6,6 +6,7 @@ import db from '../firebase';
 const Details = () => {
 
   const  {id}  = useParams();
+  
 
   const [State, setState] = useState();
 
