@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import DISNEY_FOR_KIDS from './DISNEY_FOR_KIDS';
 import ImgSlider from './ImgSlider'
 import Movies from './Movies';
-import New from './New';
-import Originals from './Originals';
 import Trending from './Trending';
 import Viewers from './Viewers';
 import db from "../firebase";
 import { useDispatch } from "react-redux";
 import { setMovies } from '../features/movie/movieSlice';
+import Stream_Exclusive from './StreamExclusive';
+import Advertisement from './Advertisement';
+import Devices from './Devices';
+
 
 
 
@@ -30,6 +31,10 @@ const Home = () => {
       //console.log(snapshot);
       snapshot.docs.map((doc) => {
         //console.log(doc.data().type);
+
+
+        
+
 
         switch (doc.data().type) {
           case "popular":
@@ -63,7 +68,7 @@ const Home = () => {
 
       });
 
-      //console.log(originals)
+      console.log(originals)
 
       dispatch( setMovies ({
         popular: populars,
@@ -85,11 +90,12 @@ const Home = () => {
     <Container>
       <ImgSlider />
       <Viewers />
-      <New />
       <Movies />
       <Trending />
-      <Originals />
-      
+      <Stream_Exclusive/>
+      <Advertisement/>
+      <Devices/>
+
     </Container>
   )
 }

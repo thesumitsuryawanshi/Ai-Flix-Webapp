@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../assets/logo.png';
 import styled from 'styled-components'
 
 function Advertisement() {
@@ -8,13 +9,14 @@ function Advertisement() {
       <Section>
         <Container>
 
+        <FooterBrand><img src={logo} height="190px" width="300px" alt='Ai Flix Logo'/></FooterBrand>
+
           <ImageIndore>
-            <img src='https://drive.google.com/uc?id=1e_XQ5kk5ejMGdXVYVAe0wnQR842paFTs' alt='' />
           </ImageIndore>
 
           <TextInfo>
-            <p>Get The Disney Bundle to Stream the best movies, shows, and sports with Disney+, HULU and ESPN+. Term Apply</p>
-            <button type='button' className='btn-theme-disney'>Get This disney Bundle</button>
+            <p>Get The AiFlix Bundle to Stream the best movies, shows,and sports with AiFlix+, HULU and ESPN+. <br/> Terms & conditions Apply</p>
+            <button type='button' className='btn-theme-disney'>Explore more </button>
           </TextInfo>
         </Container>
       </Section>
@@ -88,5 +90,18 @@ const TextInfo = styled.div`
   }
 `;
 
+const FooterBrand = styled.div`
+text-align: center;
+
+  img {
+    width: 10rem;
+    height: auto;
+    object-fit: fill;
+
+    @media screen and (max-width: 500px) {
+      width: 7rem;
+    }
+  }
+`;
 
 export default Advertisement

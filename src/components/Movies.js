@@ -12,8 +12,6 @@ function Movies() {
     return (
         <Container>
             <h4>Recommended For You</h4>
-
-
             <Content>
                 {
                     movies && movies.map((value, index) => (

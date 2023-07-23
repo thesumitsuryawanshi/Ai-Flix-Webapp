@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components";
+import logo from '../assets/logo.png';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { auth, provider } from "../firebase";
@@ -60,8 +61,8 @@ const Header = (props) => {
 
   return (
     <Nav>
-      <Logo>
-        <img src="/images/logo.svg" alt="Disney+" />
+      <Logo >
+        <img src={logo} height= "50px"  width= "100px" alt="Ai~Flix" />
       </Logo>
 
       {!userName ? (
@@ -122,7 +123,8 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.a`
-    width: 80px;
+    width: 90px;
+    text-align: center;
     cursor: pointer;
 `;
 

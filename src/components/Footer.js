@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
     <>
     <Section>
-      <Container>
-        <FooterBrand><img src='https://drive.google.com/uc?id=1_4fU_wjsWnQwhjven6kNEnp4mOM7gu35' alt=''/></FooterBrand>
+      <Container>   
+
+        <FooterBrand><img src={logo} height="90px" width="200px" alt=''/></FooterBrand>
         <Nav>
           <li><p>English</p></li>
           <li><p>Subscriber Agreement</p></li>
@@ -18,14 +20,13 @@ const Footer = () => {
           <li><p>Interest-Based-Ads</p></li>
           <li><p>Supported Devices</p></li>
           <li><p>Help</p></li>
-          <li><p>Gift Disney+</p></li>
+          <li><p>Gift AiFlix+</p></li>
           <li><p>About US</p></li>
-          <li><p>Disney+ Partner Program</p></li>
           <li><p>Premier Access</p></li>
-          <li><p>The Disney Bundle</p></li>
+          <li><p>The AiFlix Bundle</p></li>
         </Nav>
         <CopyRight>
-          <p>© DisneyPlus-JSStack. All Rights Reserved</p>
+          <p> @AiFlix ❤️.<br/> <br/> All Rights Reserved</p>
         </CopyRight>
       </Container>
     </Section>
@@ -98,6 +99,10 @@ const CopyRight = styled.div`
       font-size: 0.95rem;
     }
   }
-`;
+
+  
+`
+
+;
 
 export default Footer

@@ -3,6 +3,12 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from 'styled-components';
+import unicorn from '../assets/img slider/unicorn.png'
+import dragonRobo from '../assets/img slider/firedragon.jpg'
+import robo_in_space from '../assets/img slider/robo_in_space.png'
+import space_flower from '../assets/img slider/space_flower.png'
+import spaceship from '../assets/img slider/spaceship_in_space.png'
+import ai_girl from '../assets/img slider/ai_girl.png'
 
 function ImgSlider() {
 
@@ -15,27 +21,28 @@ function ImgSlider() {
         autoplay: true
     };
 
+
+
     return (
         <Carousel {...settings}>
-            <Warp>
-                <img src='https://drive.google.com/uc?id=14JFjPPTUK39SpIN77dCBtp4NFQENdred' alt='' />
+            <Warp >
+                <img src={unicorn} alt='' />
             </Warp>
             <Warp>
-                <img src='https://drive.google.com/uc?id=10DSo570bbNPM_2agrvUF9orWZNwU5lnF' alt='' />
+                <img src={dragonRobo} alt='' />
             </Warp>
             <Warp>
-                <img src='https://drive.google.com/uc?id=13rLpwEabENq8k1EDD8onOvoNuDD2Le2x' alt='' />
-            </Warp>
+                <img src={robo_in_space  } alt='' />
+            </Warp> 
+             <Warp>
+                <img src={space_flower  } alt='' />
+            </Warp> 
             <Warp>
-                <img src='https://drive.google.com/uc?id=1s500-iTeYkpb1LUBj1W23aAL0fcmHJDp' alt='' />
-            </Warp>
+                <img src= {spaceship} alt='' />
+            </Warp> 
             <Warp>
-                <img src='https://drive.google.com/uc?id=1dXN1Zedwtg_Sy_MsIjdSRHXTWfF8u8dB' alt='' />
-            </Warp>
-            <Warp>
-                <img src='https://drive.google.com/uc?id=1Vl-dpwmWcV_eNyPHRIivRJMw_OUy28kE' alt='' />
-            </Warp>
-
+                <img src= {ai_girl} alt='' />
+            </Warp> 
         </Carousel>
     )
 }
@@ -46,6 +53,7 @@ export default ImgSlider
 const Carousel = styled(Slider)`
     cursor: pointer;
     margin-top: 20px;
+
 
     ul li button {
         &:before {
@@ -66,6 +74,7 @@ const Carousel = styled(Slider)`
 `
 
 const Warp = styled.div`
+
 
     img{
         border: 4px solid transparent;

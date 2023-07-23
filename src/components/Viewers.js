@@ -1,40 +1,35 @@
 import styled from "styled-components";
+import drama from '../assets/img slider/genres/Drama.png'
+import action from '../assets/img slider/genres/action.png'
+import love_story from '../assets/img slider/genres/love_story.png'
+import sci_fi from '../assets/img slider/genres/sci-fi.jpg'
+import thriller from '../assets/img slider/genres/thriller.png'
+
+
+
+
 
 const Viewers = (props) => {
   return (
     <Container>
       <Wrap>
-        <img src="https://drive.google.com/uc?id=1CFRMlxcu7tdbD5UPo1znuMO2x7kKiJXt" alt="" />
-        <video autoPlay={true} loop={true} playsInline={true}>
-          <source src="/videos/1564674844-disney.mp4" type="video/mp4" />
-        </video>
+        <img src={sci_fi} alt="" />
+       
       </Wrap>
       <Wrap>
-        <img src="https://drive.google.com/uc?id=1Lquh17_-lXWOSU8xSHYcj_eRtKAPUHst" alt="" />
-        <video autoPlay={true} loop={true} playsInline={true}>
-          <source src="/videos/1564676714-pixar.mp4" type="video/mp4" />
-        </video>
+        <img src={action} alt="" />
+       
       </Wrap>
       <Wrap>
-        <img src="https://drive.google.com/uc?id=1ARhDUHxA-3qJ3QWkNxwSk5luxzKx7PBj" alt="" />
-        <video autoPlay={true} loop={true} playsInline={true}>
-          <source src="/videos/1564676115-marvel.mp4" type="video/mp4" />
-        </video>
+        <img src={thriller} alt="" />
+        
       </Wrap>
       <Wrap>
-        <img src="https://drive.google.com/uc?id=1esCcylxJyaVyFxDRuUeMDb-WCRrSWT8s" alt="" />
-        <video autoPlay={true} loop={true} playsInline={true}>
-          <source src="/videos/1608229455-star-wars.mp4" type="video/mp4" />
-        </video>
+        <img src={drama} alt="" />
+      
       </Wrap>
       <Wrap>
-        <img src="https://drive.google.com/uc?id=1c9cAOyIW1-o31SryNI5JeHHYUvxXOB7z" alt="" />
-        <video autoPlay={true} loop={true} playsInline={true}>
-          <source
-            src="/videos/1564676296-national-geographic.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <img src={love_story} alt="" />
       </Wrap>
     </Container>
   );
