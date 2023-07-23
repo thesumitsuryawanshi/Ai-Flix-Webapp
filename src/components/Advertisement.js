@@ -15,7 +15,8 @@ function Advertisement() {
           </ImageIndore>
 
           <TextInfo>
-            <p>Get The AiFlix Bundle to Stream the best movies, shows,and sports with AiFlix+, HULU and ESPN+. <br/> Terms & conditions Apply</p>
+            <p>Get The AiFlix Subscription to Stream the best movies, shows,and sports with AiFlix+, HULU and ESPN+.
+               <br/> Terms & conditions Apply</p>
             <button type='button' className='btn-theme-disney'>Explore more </button>
           </TextInfo>
         </Container>
