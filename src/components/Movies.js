@@ -4,38 +4,125 @@ import { useSelector } from "react-redux";
 import { selectRecommend } from '../features/movie/movieSlice';
 import { Link, NavLink } from 'react-router-dom';
 import FetchingTable from "./FetchingTable";
+import { initializeApp } from "firebase/app";
+import { collection, getFirestore, getDocs } from 'firebase/firestore';
+import  { useEffect, useState } from "react";
 
 
 function Movies() {
 
-    const movies = useSelector(selectRecommend);
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",   
+    authDomain: "disney-plus-clone-1abfb.firebaseapp.com",
+    projectId: "disney-plus-clone-1abfb",
+    storageBucket: "disney-plus-clone-1abfb.appspot.com",
+    messagingSenderId: "205160206542",
+    appId: "1:205160206542:web:f6048e6806d51bab6a409f",
+    measurementId: "G-BQXJBF4HVM"
+  };
+  
+
+  initializeApp(firebaseConfig)
+  const db = getFirestore()
+  const colRef = collection(db, 'Movies')
+
+  const [MovieData, setMovieData] = useState([]);
+
+  useEffect(() => {
+    getDocs(colRef)
+      .then((snapshot) => {
+        let MovieDataArray = [];
+        snapshot.docs.forEach((doc) => {
+            MovieDataArray.push({ ...doc.data(), id: doc.id });
+        });
+        setMovieData(MovieDataArray);
+      })
+      .catch(err => {
+        console.log("Something went wrong")
+      });
+  }, []);
+
+
+//   return (
+    // <div>
+    //   <h1>Trending Movies</h1>
+    //   <table>
+    //     <thead>
+    //       <tr>
+    //         <th>Hero </th>
+    //         <th>Suit color</th>
+    //         <th>Img Url</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {MovieData.map((doc) => (
+    //         <tr key={doc.id}>
+    //           <td>{doc.Mname}</td>
+    //           <td>{doc.suit_color}</td>
+    //           <td>{doc.imgUrl}</td>
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
+    // </div>
+
+
+
+//---------------------------------------//---------------------------------------//
+    // const movies = useSelector(selectRecommend);
 
     return (
         <Container>
-            <h4>Recommended For You</h4>
+            <h4>Movies List</h4>
             
-            <FetchingTable/>
+            {/* <FetchingTable/> */}
 
             <Content>
                 {
-                    movies && movies.map((value, index) => (
-                        <Wrap key={index}>
-                            <NavLink to={`/detail/${value.id}`}>
-                                <img src={value.CardImg} alt={value.id} />
-                            </NavLink>
+                    MovieData.map((doc) => (
+                        <Wrap key={doc.id}>
+                                <img src={doc.imgUrl} alt={doc.MName} />
                         </Wrap>
                     ))
                 }
             </Content>
 
         </Container>
+//---------------------------------------//---------------------------------------//
+
+
+
+//---------------------------------------secured data---------------------------------------//
+    // const movies = useSelector(selectRecommend);
+
+    // return (
+    //     <Container>
+    //         <h4>Recommended For You</h4>
+            
+    //         {/* <FetchingTable/> */}
+
+    //         <Content>
+    //             {
+    //                movies && Movie.map((value, index) => (
+    //                     <Wrap key={index}>
+    //                         <NavLink to={`/detail/${value.id}`}>
+    //                             <img src={value.CardImg} alt={value.id} />
+    //                         </NavLink>
+    //                     </Wrap>
+    //                 ))
+    //             }
+    //         </Content>
+
+    //     </Container>
+//---------------------------------------//---------------------------------------//
+
     )
 }
 
 export default Movies
 
 const Container = styled.div`
-    padding: 0 0 26px;
+    padding: 0 0 46px;
 `
 
 const Content = styled.div`

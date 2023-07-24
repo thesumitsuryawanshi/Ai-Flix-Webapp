@@ -14,7 +14,7 @@ function TRENDING() {
     return (
         <Container>
             <h4>TRENDING</h4>
-            <FetchingTable/>
+            {/* <FetchingTable/> */}
 
             <Content>
           {
