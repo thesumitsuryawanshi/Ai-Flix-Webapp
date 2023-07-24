@@ -4,32 +4,73 @@ import { useSelector } from "react-redux";
 import { selectHollywood } from '../features/movie/movieSlice';
 import { NavLink } from 'react-router-dom';
 import FetchingTable from "./FetchingTable";
+import { initializeApp } from "firebase/app";
+import { collection, getFirestore, getDocs } from 'firebase/firestore';
+import  { useEffect, useState } from "react";
 
 
 function TRENDING() {
 
 
-    const movies = useSelector(selectHollywood);
+    const firebaseConfig = {
+        apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",   
+        authDomain: "disney-plus-clone-1abfb.firebaseapp.com",
+        projectId: "disney-plus-clone-1abfb",
+        storageBucket: "disney-plus-clone-1abfb.appspot.com",
+        messagingSenderId: "205160206542",
+        appId: "1:205160206542:web:f6048e6806d51bab6a409f",
+        measurementId: "G-BQXJBF4HVM"
+      };
+      
+    
+      initializeApp(firebaseConfig)
+      const db = getFirestore()
+      const colRef = collection(db, 'Trending')
+    
+      const [TrendingData, setTrendingData] = useState([]);
+    
+      useEffect(() => {
+        getDocs(colRef)
+          .then((snapshot) => {
+            let TMovieDataArray = [];
+            snapshot.docs.forEach((doc) => {
+                TMovieDataArray.push({ ...doc.data(), id: doc.id });
+            });
+            setTrendingData(TMovieDataArray);
+          })
+          .catch(err => {
+            console.log("Something went wrong")
+          });
+      }, []);
+    
 
-    return (
-        <Container>
-            <h4>TRENDING</h4>
-            {/* <FetchingTable/> */}
 
-            <Content>
-          {
-            movies && movies.map((value, index) => (
-              <Wrap key={index}>
-                <NavLink to={`/detail/${value.id}`}>
-                <img src={value.CardImg} alt={value.id} />
-                </NavLink>
-              </Wrap>
-            ))
-          }
+    
+
+//---------------------------------------/working code/---------------------------------------//
+
+return (
+
+    <Container>
+        <h4>Trending List</h4>
+        
+        {/* <FetchingTable/> */}
+
+        <Content>
+            {
+                TrendingData.map((doc) => (
+                    <Wrap key={doc.id}>
+                            <img src={doc.imgUrl} alt={doc.TMName} />
+                    </Wrap>
+                ))
+            }
         </Content>
 
-        </Container>
+    </Container>
     )
+//---------------------------------------/working code/---------------------------------------//
+
+    
 }
 
 const Container = styled.div`
@@ -76,6 +117,5 @@ const Wrap = styled.div`
         border-color: rgba(249, 249, 249, 0.8);
     }
 `;
-
 
 export default TRENDING

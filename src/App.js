@@ -6,28 +6,25 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
 import FetchingTable from "./components/FetchingTable";
 import Movies from "./components/Movies";
+import Trending from "./components/Trending";
 
 
 
 function App() {
   return (
-    <div>
-      <FetchingTable />
-      <Movies />
 
-    </div>
 
-//  <div className="App">
-//       <Router>
-//         <Header />
-//         <Switch>
-//           <Route path="/">
-//             <Home />
-//             <Footer /> 
-//           </Route> 
-//         </Switch>
-//       </Router>
-//     </div> 
+ <div className="App">
+      <Router>
+        {/* <Header /> */}
+        <Switch>
+          <Route path="/">
+            <Home />
+            <Footer /> 
+          </Route> 
+        </Switch>
+      </Router>
+    </div> 
   );
 }
 
