@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import FetchingTable from "./components/FetchingTable";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
 
