@@ -8,8 +8,11 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
+    // <div>
+    //   <FetchingTable />
+    // </div>
 
-    <div className="App">
+ <div className="App">
       <Router>
         <Header />
         <Switch>
@@ -19,7 +22,7 @@ function App() {
           </Route> 
         </Switch>
       </Router>
-    </div>
+    </div> 
   );
 }
 

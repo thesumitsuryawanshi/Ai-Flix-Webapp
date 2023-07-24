@@ -28,14 +28,14 @@ const firebaseConfig = {
   export default db;
 
 // //------------------------------------------------------------------------------------------------------------------------
-// Import the functions you need from the SDKs you need
+// // Import the functions you need from the SDKs you need
 //  import { initializeApp } from "firebase/app";
 //  import { getAnalytics } from "firebase/analytics";
 // // TODO: Add SDKs for Firebase products that you want to use
 // // https://firebase.google.com/docs/web/setup#available-libraries
 
 // // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 //  const firebaseConfig = {
 //    apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",   
 //    authDomain: "disney-plus-clone-1abfb.firebaseapp.com",
@@ -43,15 +43,19 @@ const firebaseConfig = {
 //    storageBucket: "disney-plus-clone-1abfb.appspot.com",
 //    messagingSenderId: "205160206542",
 //    appId: "1:205160206542:web:f6048e6806d51bab6a409f",
-//    measurementId: "G-BQXJBF4HVM"
 //  };
+ 
+ //   measurementId: "G-BQXJBF4HVM"
+
+
+
 
 //  // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 
-//   const db = firebaseApp.firestore();
+//   const db = getfirestore();
 //   const auth = firebase.auth();
 //   const provider = new firebase.auth.GoogleAuthProvider();
 
