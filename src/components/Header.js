@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import {
   selectUserName,
-  selectUserPhoto,
+    selectUserPhoto,
   setUserLoginDetails,
 
 } from "../features/movie/UserReducers";

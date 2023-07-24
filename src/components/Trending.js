@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useSelector } from "react-redux";
 import { selectHollywood } from '../features/movie/movieSlice';
 import { NavLink } from 'react-router-dom';
+import FetchingTable from "./FetchingTable";
 
 
 function TRENDING() {
@@ -13,6 +14,7 @@ function TRENDING() {
     return (
         <Container>
             <h4>TRENDING</h4>
+            <FetchingTable/>
 
             <Content>
           {

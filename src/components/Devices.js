@@ -15,7 +15,6 @@ function Devices() {
         { imgSrc: imageFour, tittle: "Game Consoles" }
     ]
 
-
     return (
         <>
             <Section>
@@ -100,4 +99,4 @@ const Image = styled.div`
     }
 `;
 
-export default Devices
+export default Devices 

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useSelector } from "react-redux";
 import { selectRecommend } from '../features/movie/movieSlice';
 import { Link, NavLink } from 'react-router-dom';
+import FetchingTable from "./FetchingTable";
 
 
 function Movies() {
@@ -12,6 +13,9 @@ function Movies() {
     return (
         <Container>
             <h4>Recommended For You</h4>
+            
+            <FetchingTable/>
+
             <Content>
                 {
                     movies && movies.map((value, index) => (

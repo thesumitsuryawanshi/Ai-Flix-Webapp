@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import drama from '../assets/img slider/genres/Drama.png'
+import drama from '../assets/img slider/genres/drama.jpg'
 import action from '../assets/img slider/genres/action.png'
 import love_story from '../assets/img slider/genres/love_story.png'
 import sci_fi from '../assets/img slider/genres/sci-fi.jpg'

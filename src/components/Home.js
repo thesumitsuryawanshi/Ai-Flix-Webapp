@@ -1,21 +1,17 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import ImgSlider from './ImgSlider'
-import Movies from './Movies';
-import Trending from './Trending';
-import Viewers from './Viewers';
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import ImgSlider from "./ImgSlider";
+import Movies from "./Movies";
+import Trending from "./Trending";
+import Viewers from "./Viewers";
 import db from "../firebase";
 import { useDispatch } from "react-redux";
-import { setMovies } from '../features/movie/movieSlice';
-import Stream_Exclusive from './StreamExclusive';
-import Advertisement from './Advertisement';
-import Devices from './Devices';
-
-
-
+import { setMovies } from "../features/movie/movieSlice";
+import Stream_Exclusive from "./StreamExclusive";
+import Advertisement from "./Advertisement";
+import Devices from "./Devices";
 
 const Home = () => {
-
   const dispatch = useDispatch();
 
   let populars = [];
@@ -25,16 +21,11 @@ const Home = () => {
   let originals = [];
   let treading = [];
 
-
   useEffect(() => {
     db.collection("Movies").onSnapshot((snapshot) => {
       //console.log(snapshot);
       snapshot.docs.map((doc) => {
         //console.log(doc.data().type);
-
-
-        
-
 
         switch (doc.data().type) {
           case "popular":
@@ -63,43 +54,37 @@ const Home = () => {
           default:
             break;
         }
-
-        
-
       });
 
-      console.log(originals)
+      console.log(originals);
 
-      dispatch( setMovies ({
-        popular: populars,
-        hollywood: hollywoods,
-        newTo: newTos,
-        kidsTV: kidss,
-        original: originals,
-        treading: treading,
-
-      }))
-
-
-    })
-  }, [])
-
+      dispatch(
+        setMovies({
+          popular: populars,
+          hollywood: hollywoods,
+          newTo: newTos,
+          kidsTV: kidss,
+          original: originals,
+          treading: treading,
+        })
+      );
+    });
+  }, []);
 
   return (
+
 
     <Container>
       <ImgSlider />
       <Viewers />
       <Movies />
       <Trending />
-      <Stream_Exclusive/>
-      <Advertisement/>
-      <Devices/>
-
+      <Stream_Exclusive />
+      <Advertisement />
+      <Devices />
     </Container>
-  )
-}
-
+  );
+};
 
 const Container = styled.main`
   min-height: calc(100vh - 70px);
@@ -108,8 +93,8 @@ const Container = styled.main`
   overflow-x: hidden;
 
   &:before {
-    background: url("https://drive.google.com/uc?id=1KGsWMXJz6S2Bj_tj3scTKvDMsO5i-wcJ") center center / cover 
-    no-repeat;
+    background: url("https://drive.google.com/uc?id=1KGsWMXJz6S2Bj_tj3scTKvDMsO5i-wcJ")
+      center center / cover no-repeat;
     content: "";
     position: absolute;
     top: 0;
@@ -118,6 +103,6 @@ const Container = styled.main`
     bottom: 0;
     z-index: -1;
   }
-`
+`;
 
-export default Home
+export default Home;
