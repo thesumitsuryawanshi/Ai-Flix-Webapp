@@ -26,6 +26,7 @@ function Movies() {
 
   const [MovieData, setMovieData] = useState([]);
 
+
   useEffect(() => {
     getDocs(colRef)
       .then((snapshot) => {
@@ -40,74 +41,47 @@ function Movies() {
       });
   }, []);
 
-  //-------------------------------------------- //Data ref or data manipulation //--------------------------------------------//
-  // return (
-  // <div>
-  //   <h1>Trending Movies</h1>
-  //   <table>
-  //     <thead>
-  //       <tr>
-  //         <th>Hero </th>
-  //         <th>Suit color</th>
-  //         <th>Img Url</th>
-  //       </tr>
-  //     </thead>
-  //     <tbody>
-  //       {MovieData.map((doc) => (
-  //         <tr key={doc.id}>
-  //           <td>{doc.Mname}</td>
-  //           <td>{doc.suit_color}</td>
-  //           <td>{doc.imgUrl}</td>
-  //         </tr>
-  //       ))}
-  //     </tbody>
-  //   </table>
-  // </div>
 
-  //---------------------------------------/working code/---------------------------------------//
-  // const movies = useSelector(selectRecommend);
 
   return (
     <div>
       <Container>
-        <h1> Latest Movies List</h1>
+        <h1> Latest Movies </h1>
         <Content>
           {MovieData.map((doc) => (
             <div>
-            {/* <Wrap key={doc.id}>
+              {/* <Wrap key={doc.id}>
               <img src={doc.imgUrl} alt={doc.MName} />
             </Wrap> */}
-            
-                <Card
-                Mname={doc.MName}
+
+              <Card
+                title={doc.title}
                 videoUrl={doc.videoUrl}
-                Hcolor={doc.suit_color}
+                desc={doc.desc}
+                score={doc.score}
               />
-              </div>
+            </div>
           ))}
         </Content>
       </Container>
-       
     </div>
-    //---------------------------------------//---------------------------------------//
   );
 }
 
 export default Movies;
 
 const Container = styled.div`
-padding: 0 0 26px;
-
+  padding: 0 0 26px;
 `;
 
 const Content = styled.div`
-display: grid;
-grid-gap: 25px;
-gap: 25px;
-grid-template-columns: repeat(5, minmax(0, 1fr));
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  display: grid;
+  grid-gap: 25px;
+  gap: 25px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 `;
 
 const CardContainer = styled.div`

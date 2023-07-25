@@ -52,11 +52,15 @@
 	flex: 1;
   }
   
+.title{
+	color: rgb(255, 255, 255);
+	text-align: center;
+}
+  
   .card-title {
 	font-size: large;
-	margin-bottom: 5px;
 	margin-top: 0;
-	color: blue;
+	color: rgb(255, 255, 255);
 	text-align: center;
   }
   
@@ -75,20 +79,21 @@
 	align-items: center;
 	 align-self: center;
 	 justify-content: center;
+	 margin-top: 40px;
+	 margin-bottom: 70px;
 
-	color: rgb(0, 0, 0);
+	color: rgb(238, 238, 238);
   }
   
   .card-like-bar {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	margin-top: 20px;
   }
   
   .card-text {
 	font-size:large;
-	margin : 20px;
+	margin : 10px;
 	color: white;
 
   }
@@ -100,7 +105,7 @@
   .upvote-icon,
   .downvote-icon,
   .coin-icon {
-	font-size: 34px;
+	font-size: 35px;
 	cursor: pointer;
 	margin: 5px;
   }
@@ -166,9 +171,13 @@ justify-content: flex-start;
 }
 
 .card-icon{
-	margin-left: 70px;
 	color: white;
 }
 
-
+.button-decoration
+{
+	box-shadow: 10px 10px 10px  blueviolet;
+	border-radius: 9px 9px 9px 2px;
+	padding: 10px;
+}
 /* background-color: rebeccapurple; */

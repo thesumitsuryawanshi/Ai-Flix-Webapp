@@ -73,9 +73,11 @@ return (
             </Wrap> */}
             
                 <Card
-                Mname={doc.MName}
-                imgUrl={doc.imgUrl}
-                Hcolor={doc.suit_color}
+                title={doc.title}
+                videoUrl={doc.videoUrl}
+                desc={doc.desc}
+                score={doc.score}
+
               />
               </div>
           ))}
