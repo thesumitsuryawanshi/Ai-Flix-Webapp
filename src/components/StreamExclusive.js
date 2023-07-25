@@ -10,9 +10,10 @@ const Stream_Exclusive = () => {
       <Section>
         <Container>
           <Tittle>
-            <h1 className='disney-tittles'>Ai-Flix</h1>
+            <h2 className='disney-tittles'>Ai-Flix</h2>
             <p>An Flawless Creation of Webseries & Movies by Artificial intelligence <br/> & <br/> there collection only on Ai-Flix.</p>
           </Tittle>
+
           <GridImg>
           <Image ><img src='https://drive.google.com/uc?id=1nVl9d8GCfDhFzIu-G4H9DiEoCTJbfpH7' alt='grid/img' /></Image>
           <Image ><img src='https://drive.google.com/uc?id=1Ko0laxDg7WAbg8MURgnDn18Xfbt_npz4' alt='grid/img' /></Image>

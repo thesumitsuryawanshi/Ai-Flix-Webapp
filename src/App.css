@@ -75,3 +75,17 @@
       line-height: 1.3rem;
     }
   }
+
+
+
+  .social-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .social-buttons span {
+    margin-left: 5px;
+  }
+  

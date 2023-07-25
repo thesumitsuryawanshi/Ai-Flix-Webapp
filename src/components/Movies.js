@@ -67,33 +67,27 @@ function Movies() {
   //---------------------------------------/working code/---------------------------------------//
   // const movies = useSelector(selectRecommend);
 
-  let MoviesData2 = {
-    Mname : "Superman",
-    suit_color : "Red_blue",
-    imgUrl : "https://firebasestorage.googleapis.com/v0/b/disney-plus-clone-1abfb.appspot.com/o/superman.jpg?alt=media&token=6b6a1901-4803-4bb7-b3fb-02d09980831c",
-  }
-
   return (
     <div>
       <Container>
-        <h4>Movies List</h4>
-
+        <h1> Latest Movies List</h1>
         <Content>
           {MovieData.map((doc) => (
-            <Wrap key={doc.id}>
+            <div>
+            {/* <Wrap key={doc.id}>
               <img src={doc.imgUrl} alt={doc.MName} />
-            </Wrap>
+            </Wrap> */}
+            
+                <Card
+                Mname={doc.MName}
+                videoUrl={doc.videoUrl}
+                Hcolor={doc.suit_color}
+              />
+              </div>
           ))}
         </Content>
       </Container>
-
-      <div  >
-        <Card
-          Mname={MoviesData2.MName}
-          Hcolor={MoviesData2.suit_color}
-          imgUrl={MoviesData2.imgUrl}
-        />
-      </div>
+       
     </div>
     //---------------------------------------//---------------------------------------//
   );
@@ -102,17 +96,33 @@ function Movies() {
 export default Movies;
 
 const Container = styled.div`
-  padding: 0 0 56px;
+padding: 0 0 26px;
+
 `;
 
 const Content = styled.div`
+display: grid;
+grid-gap: 25px;
+gap: 25px;
+grid-template-columns: repeat(5, minmax(0, 1fr));
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+`;
+
+const CardContainer = styled.div`
   display: grid;
-  grid-gap: 35px;
-  gap: 25px;
+  grid-gap: 25px;
+
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+ 
+  @media (width: 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  
+  @media screen and (max-width: 991px){
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 `;
 
 const Wrap = styled.div`
@@ -140,7 +150,7 @@ const Wrap = styled.div`
   &:hover {
     box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
       rgb(0 0 0 / 72%) 0px 30px 22px -10px;
-    transform: scale(1.05);
     border-color: rgba(249, 249, 249, 0.8);
+    transform: scale(1.15);
   }
 `;

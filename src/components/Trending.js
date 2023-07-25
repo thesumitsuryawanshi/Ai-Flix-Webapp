@@ -7,6 +7,7 @@ import FetchingTable from "./FetchingTable";
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore, getDocs } from 'firebase/firestore';
 import  { useEffect, useState } from "react";
+import Card from "../reddit_Components/Card";
 
 
 function TRENDING() {
@@ -57,13 +58,28 @@ return (
         {/* <FetchingTable/> */}
 
         <Content>
-            {
+            {/* {
                 TrendingData.map((doc) => (
                     <Wrap key={doc.id}>
                             <img src={doc.imgUrl} alt={doc.TMName} />
                     </Wrap>
                 ))
-            }
+            } */}
+
+{TrendingData.map((doc) => (
+            <div>
+            {/* <Wrap key={doc.id}>
+              <img src={doc.imgUrl} alt={doc.MName} />
+            </Wrap> */}
+            
+                <Card
+                Mname={doc.MName}
+                imgUrl={doc.imgUrl}
+                Hcolor={doc.suit_color}
+              />
+              </div>
+          ))}
+
         </Content>
 
     </Container>
