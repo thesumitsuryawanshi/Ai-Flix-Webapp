@@ -10,8 +10,6 @@ import { getFirestore, collection, getDocs, onSnapshot, updateDoc, doc } from "f
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import Card from "../reddit_Components/Card";
 
-
-
 function Movies() {
   const firebaseConfig = {
     apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",
@@ -38,13 +36,13 @@ function Movies() {
         let MovieDataArray = [];
         snapshot.docs.forEach((doc) => {
           MovieDataArray.push({ ...doc.data(), id: doc.id });
-        });
+        }); 
         setMovieData(MovieDataArray);
       })
       .catch((err) => {
         console.log("Something went wrong");
       });
-
+  
     // Listen for updates in Realtime Database (scores)
     onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
@@ -56,40 +54,66 @@ function Movies() {
       }
     });
   }, []);
-  // Function to handle downvote click (if required)
-  function handleUpVoteClick(index) {
+  
+  function UpVoteClick(index) {
     const updatedMovieData = [...movieData];
     updatedMovieData[index].score++;
-    setMovieData(updatedMovieData);
-
+    
+    // Sort the movie data in descending order based on the score
+    const sortedMovieData = sortMoviesByScoreDescending(updatedMovieData);
+    setMovieData(sortedMovieData);
+  
+    // Update the score in the Realtime Database
+    updateDoc(doc(db, "Movies", movieData[index].id), {
+      score: updatedMovieData[index].score,
+    });
+  }
+  
+  // Function to handle downvote click
+  function DownVoteClick(index) {
+    const updatedMovieData = [...movieData];
+    updatedMovieData[index].score--;
+  
+    // Sort the movie data in descending order based on the score
+    const sortedMovieData = sortMoviesByScoreDescending(updatedMovieData);
+    setMovieData(sortedMovieData);
+  
     // Update the score in the Realtime Database
     updateDoc(doc(db, "Movies", movieData[index].id), {
       score: updatedMovieData[index].score,
     });
   }
 
+// Function to sort movies in descending order based on score
+function sortMoviesByScoreDescending(movies) {
+  return movies.slice().sort((a, b) => b.score - a.score);
+}
 
-  return (
-    <div>
-     <Container>
-        <h1> Latest Movies </h1>
-        <Content>
-          {movieData.map((doc, index) => (
-            <div key={doc.id}>
-              <Card
-                title={doc.title}
-                videoUrl={doc.videoUrl}
-                desc={doc.desc}
-                score={doc.score}
-                upVoteClicked={() => handleUpVoteClick(index)}
-                downVoteClicked={() => handleDownVoteClick(index)}
-              />
-            </div>
-          ))}
-        </Content>
-      </Container>
-    </div>
-  );
+return (
+  <div>
+  <Container>
+    <h1> Latest Movies </h1>
+    <Content>
+      {/* Sort movieData in descending order based on the score */}
+      {movieData
+        .slice()
+        .sort((a, b) => b.score - a.score)
+        .map((doc, index) => (
+          <div key={doc.id}>
+            <Card 
+              title={doc.title}
+              videoUrl={doc.videoUrl}
+              desc={doc.desc}
+              score={doc.score}
+              upVoteClicked={() => UpVoteClick(index)}
+              downVoteClicked={() => DownVoteClick(index)}
+            />
+          </div>
+        ))}
+    </Content>
+  </Container>
+</div>
+);
 }
 
 export default Movies;
