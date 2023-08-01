@@ -9,6 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Card(props) {
+
+
+  const { score, upVoteClicked, downVoteClicked } = props;
+
+  
   return (
     <div class="card">
       <div className="cardheader">
@@ -26,7 +31,7 @@ export default function Card(props) {
             </div>
           </div>
         </div>
-        <ReactPlayer controls url={props.videoUrl} />
+        <ReactPlayer controls autoPlay={true} url={props.videoUrl} />
       </div>
       <div className="title">
         <div className="card-title">{props.title}</div>

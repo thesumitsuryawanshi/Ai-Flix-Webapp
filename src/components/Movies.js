@@ -1,13 +1,16 @@
-import React from "react";
-import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { selectRecommend } from "../features/movie/movieSlice";
 import { Link, NavLink } from "react-router-dom";
 import FetchingTable from "./FetchingTable";
+
+import React, { useState, useEffect , useMemo } from "react";
+import styled from "styled-components";
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { getFirestore, collection, getDocs, onSnapshot, updateDoc, doc } from "firebase/firestore";
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import Card from "../reddit_Components/Card";
+
+
 
 function Movies() {
   const firebaseConfig = {
@@ -20,14 +23,16 @@ function Movies() {
     measurementId: "G-BQXJBF4HVM",
   };
 
+
   initializeApp(firebaseConfig);
   const db = getFirestore();
   const colRef = collection(db, "Movies");
+  const dbRef = ref(getDatabase(), "Movies");
 
-  const [MovieData, setMovieData] = useState([]);
-
+  const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
+    // Fetch movie data from Firestore
     getDocs(colRef)
       .then((snapshot) => {
         let MovieDataArray = [];
@@ -39,26 +44,45 @@ function Movies() {
       .catch((err) => {
         console.log("Something went wrong");
       });
-  }, []);
 
+    // Listen for updates in Realtime Database (scores)
+    onValue(dbRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const updatedMovieData = movieData.map((movie) => {
+          return { ...movie, score: data[movie.id]?.score || 0 };
+        });
+        setMovieData(updatedMovieData);
+      }
+    });
+  }, []);
+  // Function to handle downvote click (if required)
+  function handleUpVoteClick(index) {
+    const updatedMovieData = [...movieData];
+    updatedMovieData[index].score++;
+    setMovieData(updatedMovieData);
+
+    // Update the score in the Realtime Database
+    updateDoc(doc(db, "Movies", movieData[index].id), {
+      score: updatedMovieData[index].score,
+    });
+  }
 
 
   return (
     <div>
-      <Container>
+     <Container>
         <h1> Latest Movies </h1>
         <Content>
-          {MovieData.map((doc) => (
-            <div>
-              {/* <Wrap key={doc.id}>
-              <img src={doc.imgUrl} alt={doc.MName} />
-            </Wrap> */}
-
+          {movieData.map((doc, index) => (
+            <div key={doc.id}>
               <Card
                 title={doc.title}
                 videoUrl={doc.videoUrl}
                 desc={doc.desc}
                 score={doc.score}
+                upVoteClicked={() => handleUpVoteClick(index)}
+                downVoteClicked={() => handleDownVoteClick(index)}
               />
             </div>
           ))}

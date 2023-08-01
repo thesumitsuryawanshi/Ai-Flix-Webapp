@@ -53,7 +53,7 @@ function TRENDING() {
 return (
 
     <Container>
-        <h4>Trending List</h4>
+        <h1>Trending List</h1>
         
         {/* <FetchingTable/> */}
 
