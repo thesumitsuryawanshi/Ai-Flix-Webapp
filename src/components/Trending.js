@@ -19,7 +19,6 @@ export default function Trending() {
   const db = getFirestore();
   const colRef = collection(db, 'Trending');
 
-
   const [TrendingData, setTrendingData] = useState([]);
 
   useEffect(() => {

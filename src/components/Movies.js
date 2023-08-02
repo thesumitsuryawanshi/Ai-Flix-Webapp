@@ -1,7 +1,3 @@
-import { useSelector } from "react-redux";
-import { selectRecommend } from "../features/movie/movieSlice";
-import { Link, NavLink } from "react-router-dom";
-import FetchingTable from "./FetchingTable";
 
 import React, { useState, useEffect , useMemo } from "react";
 import styled from "styled-components";
@@ -20,40 +16,33 @@ function Movies() {
     appId: "1:205160206542:web:f6048e6806d51bab6a409f",
     measurementId: "G-BQXJBF4HVM",
   };
-
+ 
 
   initializeApp(firebaseConfig);
   const db = getFirestore();
   const colRef = collection(db, "Movies");
-  const dbRef = ref(getDatabase(), "Movies");
 
   const [movieData, setMovieData] = useState([]);
 
+ 
   useEffect(() => {
-    // Fetch movie data from Firestore
-    getDocs(colRef)
-      .then((snapshot) => {
-        let MovieDataArray = [];
-        snapshot.docs.forEach((doc) => {
-          MovieDataArray.push({ ...doc.data(), id: doc.id });
-        }); 
-        setMovieData(MovieDataArray);
-      })
-      .catch((err) => {
-        console.log("Something went wrong");
+    const unsubscribe = onSnapshot(colRef, (snapshot) => {
+      let MovieDataArray = [];
+      snapshot.docs.forEach((doc) => {
+        MovieDataArray.push({ ...doc.data(), id: doc.id });
       });
-  
-    // Listen for updates in Realtime Database (scores)
-    onValue(dbRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const updatedMovieData = movieData.map((movie) => {
-          return { ...movie, score: data[movie.id]?.score || 0 };
-        });
-        setMovieData(updatedMovieData);
-      }
+      
+      // Sort the trending data in descending order based on the score
+      const sortedMoviesData = sortMoviesByScoreDescending(MovieDataArray);
+      setMovieData(sortedMoviesData);
     });
+
+    return () => {
+      // Clean up the real-time data listener
+      unsubscribe();
+    };
   }, []);
+
   
   function UpVoteClick(index) {
     const updatedMovieData = [...movieData];
@@ -64,11 +53,15 @@ function Movies() {
     setMovieData(sortedMovieData);
   
     // Update the score in the Realtime Database
-    updateDoc(doc(db, "Movies", movieData[index].id), {
-      score: updatedMovieData[index].score,
-    });
+  const movieId = updatedMovieData[index].id;
+  const scoreToUpdate = updatedMovieData[index].score;
+  const movieDocRef = doc(db, 'Movies', movieId);
+  updateDoc(movieDocRef, { score: scoreToUpdate });
   }
   
+
+
+
   // Function to handle downvote click
   function DownVoteClick(index) {
     const updatedMovieData = [...movieData];
@@ -79,9 +72,10 @@ function Movies() {
     setMovieData(sortedMovieData);
   
     // Update the score in the Realtime Database
-    updateDoc(doc(db, "Movies", movieData[index].id), {
-      score: updatedMovieData[index].score,
-    });
+  const movieId = updatedMovieData[index].id;
+  const scoreToUpdate = updatedMovieData[index].score;
+  const movieDocRef = doc(db, 'Movies', movieId);
+  updateDoc(movieDocRef, { score: scoreToUpdate });
   }
 
 // Function to sort movies in descending order based on score
@@ -90,7 +84,6 @@ function sortMoviesByScoreDescending(movies) {
 }
 
 return (
-  <div>
   <Container>
     <h1> Latest Movies </h1>
     <Content>
@@ -99,8 +92,8 @@ return (
         .slice()
         .sort((a, b) => b.score - a.score)
         .map((doc, index) => (
-          <div key={doc.id}>
-            <Card 
+          <div key={doc.id}> 
+            <Card asdasd
               title={doc.title}
               videoUrl={doc.videoUrl}
               desc={doc.desc}
@@ -112,7 +105,6 @@ return (
         ))}
     </Content>
   </Container>
-</div>
 );
 }
 
