@@ -79,8 +79,6 @@ const Carousel = styled(Slider)`
 `
 
 const Warp = styled.div`
-
-
     img{
         border: 4px solid transparent;
         border-radius: 4px;

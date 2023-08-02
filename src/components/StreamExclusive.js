@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import coverImg from '../assets/Grid_Images/Cover_Image.png';
-import AC_final from '../assets/Grid_Images/AC-final.jpg';
 
+import AC_final from '../assets/Grid_Images/AC-final.jpg';
 import NS_fotor from '../assets/Grid_Images/NS-fotor.png';
 import PH_fotor from '../assets/Grid_Images/PH-fotor.png';
 
 import QN_fotor from '../assets/Grid_Images/QN-fotor.png';
 import SS_fotor from '../assets/Grid_Images/SS-fotor.png';
 import WA_fotor from '../assets/Grid_Images/WA-fotor.png';
+
+import KOALA from '../assets/Grid_Images/Koala-fotor.png';
+import Cubie from '../assets/Grid_Images/Cubie.png';
+import Machine from '../assets/Grid_Images/Machine.png';
 
 
 const Stream_Exclusive = () => {
@@ -19,7 +23,7 @@ const Stream_Exclusive = () => {
       <Section>
         <Container>
           <Tittle style={{ marginBottom: '100px' }}>
-          <img src={coverImg}  height= '200px' width= '900px' alt='grid/img' />
+          <img src={coverImg}  height= '200px' width= '990px' alt='grid/img' />
             {/* <h2 className='disney-tittles'>Ai-Flix</h2> */}
         {/* ?    <p>An Flawless Creation of Webseries & Movies by Artificial intelligence <br/> & <br/> there collection only on Ai-Flix.</p> */}
           </Tittle>
@@ -32,6 +36,10 @@ const Stream_Exclusive = () => {
           <Image ><img src={QN_fotor} alt='grid/img' /></Image>
           <Image ><img src={SS_fotor} alt='grid/img' /></Image>
           <Image ><img src={WA_fotor} alt='grid/img' /></Image>
+
+          <Image ><img src={KOALA} alt='grid/img' /></Image>
+          <Image ><img src={Cubie} alt='grid/img' /></Image>
+          <Image ><img src={Machine} alt='grid/img' /></Image>
           </GridImg>
         </Container>
       </Section>

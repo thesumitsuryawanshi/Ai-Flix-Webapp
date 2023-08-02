@@ -10,6 +10,7 @@ import { setMovies } from "../features/movie/movieSlice";
 import Stream_Exclusive from "./StreamExclusive";
 import Advertisement from "./Advertisement";
 import Devices from "./Devices";
+import Header from "./Header";
 
 const Home = () => {
 

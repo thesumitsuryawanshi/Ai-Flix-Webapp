@@ -65,9 +65,7 @@ const Header = (props) => {
         <img src={logo} height= "50px"  width= "100px" alt="Ai~Flix" />
       </Logo>
 
-      {!userName ? (
-        <Login onClick={handleAuth}>Login</Login>
-      ) : (
+
         <>
           <NavMenu>
             <a href="/home">
@@ -102,7 +100,8 @@ const Header = (props) => {
             </DropDown>
           </SignOut>
         </>
-      )}
+      
+      
     </Nav>
   );
 };
