@@ -14,59 +14,59 @@ import { setSignOutState } from "../features/movie/UserReducers";
 
 
 const Header = (props) => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const userName = useSelector(selectUserName);
-  const userPhoto = useSelector(selectUserPhoto);
+//   const dispatch = useDispatch();
+//   const history = useHistory();
+//   const userName = useSelector(selectUserName);
+//   const userPhoto = useSelector(selectUserPhoto);
 
-  useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        setUser(user);
-        history.push("/home");
-      }
-    });
-  }, [userName]);
+//   useEffect(() => {
+//     auth.onAuthStateChanged(async (user) => {
+//       if (user) {
+//         setUser(user);
+//         history.push("/home");
+//       }
+//     });
+//   }, [userName]);
 
-  const handleAuth = () => {
-    if (!userName) {
-      auth
-        .signInWithPopup(provider)
-        .then((result) => {
-          setUser(result.user);
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
-    } else if (userName) {
-      auth
-        .signOut()
-        .then(() => {
-          dispatch(setSignOutState());
-          history.push("/");
-        })
-        .catch((err) => alert(err.message));
-    }
-  };
+//   const handleAuth = () => {
+//     if (!userName) {
+//       auth
+//         .signInWithPopup(provider)
+//         .then((result) => {
+//           setUser(result.user);
+//         })
+//         .catch((error) => {
+//           alert(error.message);
+//         });
+//     } else if (userName) {
+//       auth
+//         .signOut()
+//         .then(() => {
+//           dispatch(setSignOutState());
+//           history.push("/");
+//         })
+//         .catch((err) => alert(err.message));
+//     }
+//   };
 
-  const setUser = (user) => {
-    dispatch(
-      setUserLoginDetails({
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-      })
-    );
-  };
+//   const setUser = (user) => {
+//     dispatch(
+//       setUserLoginDetails({
+//         name: user.displayName,
+//         email: user.email,
+//         photo: user.photoURL,
+//       })
+//     );
+//   };
 
   return (
+
+
     <Nav>
       <Logo >
-        <img src={logo} height= "50px"  width= "100px" alt="Ai~Flix" />
+        asdjhaskd        <img src={logo} height= "50px"  width= "100px" alt="Ai~Flix" />
       </Logo>
 
-
-        <>
           <NavMenu>
             <a href="/home">
               <img src='https://drive.google.com/uc?id=1i-N5_YQwBPv1eSRm-EPQElJyzhCmecm8' alt="HOME" />
@@ -99,7 +99,6 @@ const Header = (props) => {
               <span onClick={handleAuth}>Sign out</span>
             </DropDown>
           </SignOut>
-        </>
       
       
     </Nav>

@@ -36,8 +36,7 @@ const Viewers = (props) => {
 };
 
 const Container = styled.div`
-  margin-top: 30px;
-  padding: 30px 0px 26px;
+  padding: 100px;
   display: grid;
   grid-gap: 25px;
   gap: 45px;
@@ -50,7 +49,7 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   padding-top: 56.25%;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
     rgb(0 0 0 / 73%) 0px 16px 10px -10px;
   cursor: pointer;
@@ -61,6 +60,7 @@ const Wrap = styled.div`
 
   img {
     inset: 0px;
+    padding:10px;
     display: block;
     height: 100%;
     object-fit: cover;

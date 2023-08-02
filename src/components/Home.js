@@ -11,11 +11,13 @@ import Stream_Exclusive from "./StreamExclusive";
 import Advertisement from "./Advertisement";
 import Devices from "./Devices";
 import Header from "./Header";
+import MyHeader from "./MyHeader";
 
 const Home = () => {
 
   return (
-
+    <div>
+    <MyHeader/>
     <Container>
       <ImgSlider />
       <Viewers />
@@ -25,6 +27,7 @@ const Home = () => {
       <Advertisement />
       <Devices />
     </Container>
+    </div>
   );
 };
 

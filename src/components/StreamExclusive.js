@@ -23,7 +23,7 @@ const Stream_Exclusive = () => {
       <Section>
         <Container>
           <Tittle style={{ marginBottom: '100px' }}>
-          <img src={coverImg}  height= '200px' width= '990px' alt='grid/img' />
+          <img src={coverImg}  height= '160px' width= '990px' alt='grid/img' />
             {/* <h2 className='disney-tittles'>Ai-Flix</h2> */}
         {/* ?    <p>An Flawless Creation of Webseries & Movies by Artificial intelligence <br/> & <br/> there collection only on Ai-Flix.</p> */}
           </Tittle>

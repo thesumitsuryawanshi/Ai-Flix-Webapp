@@ -6,6 +6,7 @@ import { getFirestore, collection, getDocs, onSnapshot, updateDoc, doc } from "f
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import Card from "../reddit_Components/Card";
 
+
 function Movies() {
   const firebaseConfig = {
     apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",
@@ -92,8 +93,8 @@ return (
         .slice()
         .sort((a, b) => b.score - a.score)
         .map((doc, index) => (
-          <div key={doc.id}> 
-            <Card asdasd
+          <div key={doc.id} className="cardstyling"> 
+            <Card 
               title={doc.title}
               videoUrl={doc.videoUrl}
               desc={doc.desc}
@@ -112,9 +113,12 @@ export default Movies;
 
 const Container = styled.div`
   padding: 0 0 26px;
+
+
 `;
 
 const Content = styled.div`
+
   display: grid;
   grid-gap: 25px;
   gap: 25px;
@@ -124,7 +128,9 @@ const Content = styled.div`
   }
 `;
 
+
 const CardContainer = styled.div`
+  
   display: grid;
   grid-gap: 25px;
 
