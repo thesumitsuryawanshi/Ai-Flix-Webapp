@@ -61,7 +61,6 @@ const Header = (props) => {
 
   return (
 
-
     <Nav>
       <Logo >
         asdjhaskd        <img src={logo} height= "50px"  width= "100px" alt="Ai~Flix" />
@@ -250,6 +249,5 @@ ${UserImg} {
 const UserImage = styled.img`
   height: 100%;
 `;
-
 
 export default Header;

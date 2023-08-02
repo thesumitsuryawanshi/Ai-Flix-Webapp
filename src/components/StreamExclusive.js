@@ -56,7 +56,10 @@ const Section = styled.section`
 
 const Container = styled.div`
   width: 95%;
-  margin: 0 auto;
+---------------------------------------------
+
+
+  padding:150px
 `;
 
 const Tittle = styled.div`
@@ -75,6 +78,7 @@ const Tittle = styled.div`
 const GridImg = styled.div`
   display: grid;
   gap: 15px 25px;
+  
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @media screen and (max-width: 991px){
@@ -84,8 +88,7 @@ const GridImg = styled.div`
 const Image = styled.div`
 
   width: 100%;
-  padding: 0;
-   width: 500, height: 600
+  padding: 100px;
   border-radius: 0.24rem;
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
   rgb(0 0 0 /73%) 0px 16px 10px -10px;
@@ -95,7 +98,7 @@ const Image = styled.div`
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: .35rem;
+    border-radius: 1.65rem;
   }
 
 

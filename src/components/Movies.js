@@ -1,11 +1,16 @@
-
-import React, { useState, useEffect , useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, onSnapshot, updateDoc, doc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  onSnapshot,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import Card from "../reddit_Components/Card";
-
 
 function Movies() {
   const firebaseConfig = {
@@ -17,7 +22,6 @@ function Movies() {
     appId: "1:205160206542:web:f6048e6806d51bab6a409f",
     measurementId: "G-BQXJBF4HVM",
   };
- 
 
   initializeApp(firebaseConfig);
   const db = getFirestore();
@@ -25,14 +29,13 @@ function Movies() {
 
   const [movieData, setMovieData] = useState([]);
 
- 
   useEffect(() => {
     const unsubscribe = onSnapshot(colRef, (snapshot) => {
       let MovieDataArray = [];
       snapshot.docs.forEach((doc) => {
         MovieDataArray.push({ ...doc.data(), id: doc.id });
       });
-      
+
       // Sort the trending data in descending order based on the score
       const sortedMoviesData = sortMoviesByScoreDescending(MovieDataArray);
       setMovieData(sortedMoviesData);
@@ -44,81 +47,79 @@ function Movies() {
     };
   }, []);
 
-  
   function UpVoteClick(index) {
     const updatedMovieData = [...movieData];
     updatedMovieData[index].score++;
-    
+
     // Sort the movie data in descending order based on the score
     const sortedMovieData = sortMoviesByScoreDescending(updatedMovieData);
     setMovieData(sortedMovieData);
-  
+
     // Update the score in the Realtime Database
-  const movieId = updatedMovieData[index].id;
-  const scoreToUpdate = updatedMovieData[index].score;
-  const movieDocRef = doc(db, 'Movies', movieId);
-  updateDoc(movieDocRef, { score: scoreToUpdate });
+    const movieId = updatedMovieData[index].id;
+    const scoreToUpdate = updatedMovieData[index].score;
+    const movieDocRef = doc(db, "Movies", movieId);
+    updateDoc(movieDocRef, { score: scoreToUpdate });
   }
-  
-
-
 
   // Function to handle downvote click
   function DownVoteClick(index) {
     const updatedMovieData = [...movieData];
     updatedMovieData[index].score--;
-  
+
     // Sort the movie data in descending order based on the score
     const sortedMovieData = sortMoviesByScoreDescending(updatedMovieData);
     setMovieData(sortedMovieData);
-  
+
     // Update the score in the Realtime Database
-  const movieId = updatedMovieData[index].id;
-  const scoreToUpdate = updatedMovieData[index].score;
-  const movieDocRef = doc(db, 'Movies', movieId);
-  updateDoc(movieDocRef, { score: scoreToUpdate });
+    const movieId = updatedMovieData[index].id;
+    const scoreToUpdate = updatedMovieData[index].score;
+    const movieDocRef = doc(db, "Movies", movieId);
+    updateDoc(movieDocRef, { score: scoreToUpdate });
   }
 
-// Function to sort movies in descending order based on score
-function sortMoviesByScoreDescending(movies) {
-  return movies.slice().sort((a, b) => b.score - a.score);
-}
+  // Function to sort movies in descending order based on score
+  function sortMoviesByScoreDescending(movies) {
+    return movies.slice().sort((a, b) => b.score - a.score);
+  }
 
-return (
-  <Container>
-    <h1> Latest Movies </h1>
-    <Content>
-      {/* Sort movieData in descending order based on the score */}
-      {movieData
-        .slice()
-        .sort((a, b) => b.score - a.score)
-        .map((doc, index) => (
-          <div key={doc.id} className="cardstyling"> 
-            <Card 
-              title={doc.title}
-              videoUrl={doc.videoUrl}
-              desc={doc.desc}
-              score={doc.score}
-              upVoteClicked={() => UpVoteClick(index)}
-              downVoteClicked={() => DownVoteClick(index)}
-            />
-          </div>
-        ))}
-    </Content>
-  </Container>
-);
+  return (
+    <Container>
+      <h1> Latest Movies </h1>
+      <Content>
+        {/* Sort movieData in descending order based on the score */}
+        {movieData
+          .slice()
+          .sort((a, b) => b.score - a.score)
+          .map((doc, index) => (
+            <div key={doc.id}>
+              <CardStyling>
+                <Card
+                  title={doc.title}
+                  videoUrl={doc.videoUrl}
+                  desc={doc.desc}
+                  score={doc.score}
+                  upVoteClicked={() => UpVoteClick(index)}
+                  downVoteClicked={() => DownVoteClick(index)}
+                />
+              </CardStyling>
+            </div>
+          ))}
+      </Content>
+    </Container>
+  );
 }
 
 export default Movies;
 
 const Container = styled.div`
   padding: 0 0 26px;
+`;
 
-
+const CardStyling = styled.div`
 `;
 
 const Content = styled.div`
-
   display: grid;
   grid-gap: 25px;
   gap: 25px;
@@ -127,7 +128,6 @@ const Content = styled.div`
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
-
 
 const CardContainer = styled.div`
   
