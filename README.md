@@ -1,19 +1,17 @@
-# Disney+ Clone with REACT JS
+# Ai Flix WebApp ( a Netflix app but with AI ) 
+ 
 
-<a href="https://disney-plus-clone-976a1.web.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
+![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
 ![](https://img.shields.io/badge/Maintained-Yes-indigo)
-![](https://img.shields.io/github/forks/SashenJayathilaka/Disney-Plus-Clone.svg)
-![](https://img.shields.io/github/stars/SashenJayathilaka/Disney-Plus-Clone.svg)
 ![](https://img.shields.io/github/issues/SashenJayathilaka/Disney-Plus-Clone)
 ![](https://img.shields.io/github/last-commit/SashenJayathilaka/Disney-Plus-Clone)
 
 <!-- Screenshots -->
-### :camera: Screenshots
+### :camera: UI 
 
 <div style="display: inline_block" align="center"><br>
 
-<a href="https://disney-plus-clone-976a1.firebaseapp.com/" target="_blank"> <img width='800rem' src="https://user-images.githubusercontent.com/99184393/177023743-7bbda27b-03d6-49c6-9527-49635217cfda.png" alt=""/></a>
-</div>
+![image](https://github.com/thesumitsuryawanshi/Ai-Flix-Webapp/assets/58788722/7a1b8e1f-34d4-4638-a9b2-b963dcf68264)
 
 ## <a href="https://disney-plus-clone-976a1.web.app" target="_blank">LIVE DEMO 💥</a>
 
@@ -100,15 +98,13 @@
 
 Install my-project with npm
 ```
-npx create-react-app disney_plus_clone --template redux
+npx create-react-app Ai-Flix App
 ```
 ```
-cd disney_plus_clone
+cd Ai-Flix App
 ```
 <a href="https://firebase.google.com/docs/web/setup" target="_blank">Create a Firebase project.</a>
-
 Install dependencies
-
 <a href="https://github.com/SashenJayathilaka/Disney-Plus-Clone/blob/master/package.json" target="_blank">🔶 Dependency Info</a>
 
 <!-- Run Locally -->
@@ -119,7 +115,7 @@ Install dependencies
 Clone the project
 
 ```bash
-  git clone https://github.com/SashenJayathilaka/Disney-Plus-Clone.git
+  git clone [https://github.com/SashenJayathilaka/Disney-Plus-Clone.git](https://github.com/thesumitsuryawanshi/Ai-Flix-Webapp.git)
 ```
 
 Install dependencies
@@ -196,9 +192,11 @@ firebase deploy --only hosting
 
 ## :handshake: Contact
 
-Sashen - [@twitter_handle](https://twitter.com/SashenHasinduJ) - sashenjayathilaka95@gmail.com
+Summit🏹🔮 - [@twitter_handle]([Twitter] (https://twitter.com/AmazingSummitS)) 
+ - thesumit0013@gmail.com
 
-Project Link: [https://github.com/SashenJayathilaka/Disney-Plus-Clone.git](https://github.com/SashenJayathilaka/Disney-Plus-Clone.git)
+Project Link:
+(https://github.com/thesumitsuryawanshi/Ai-Flix-Webapp.git)
 
 
 <!-- Acknowledgments -->
