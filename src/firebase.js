@@ -10,7 +10,7 @@
 //   databaseURL: "https://instagram-clone-559d9-default-rtdb.europe-west1.firebasedatabase.app",
 //   projectId: "instagram-clone-559d9",
 //   storageBucket: "instagram-clone-559d9.appspot.com",
-//   messagingSenderId: "1040606593608",
+//   messagingSenderId: "1040606593608",Y
 //   appId: "1:1040606593608:web:02ea8c2e99f752dda20e7d",
 //   measurementId: "G-SHQW9CMGHW"
 // };
