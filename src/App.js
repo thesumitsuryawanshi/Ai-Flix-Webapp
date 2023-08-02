@@ -1,11 +1,8 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
-import Movies from "./components/Movies";
-import Trending from "./components/Trending";
 
 
 
@@ -15,7 +12,6 @@ function App() {
 
  <div className="App">
       <Router>
-        {/* <Header /> */}
         <Switch>
           <Route path="/">
             <Home />

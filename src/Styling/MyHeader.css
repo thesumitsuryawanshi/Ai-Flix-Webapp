@@ -1,5 +1,4 @@
 /* MyHeader.css */
-
 .header-container {
   display: flex;
   justify-content: flex-start;
@@ -31,6 +30,9 @@ font-family: 'Courier New', Courier, monospace;
 }
 
 .nav-menu li {
+  border-radius: 20px;
+  transform: scale(1.05);
+  padding: 15px;
   margin: 0 15px;
   position: relative;
   font-weight: bold;
@@ -44,7 +46,8 @@ font-family: 'Courier New', Courier, monospace;
 }
 
 .nav-menu a:hover {
-  color: #ff9900;
+  color: #f8f8f7;
+  
 }
 
 .icon {
@@ -66,10 +69,22 @@ font-family: 'Courier New', Courier, monospace;
   color: white;
   font-weight: bold;
   cursor: pointer;
-font-size: 18px;
+  font-size: 18px;
   transition: color 0.3s ease-in-out;
 }
 
 .sign-out-button:hover {
-  color: #ff9900;
+ color: #fcfcfc;
+ border-radius: 20px;
+ transform: scale(1.05);
+ padding: 15px;
+ margin: 0 15px;
+ background-color: #e21515;
+
+}
+
+
+.nav-menu li:hover {
+  background-color: #e21515;
+  transform: scale(1.05);
 }
