@@ -94,6 +94,9 @@ const Image = styled.div`
   rgb(0 0 0 /73%) 0px 16px 10px -10px;
 
 
+
+  
+
   img {
     width: 100%;
     height: auto;
