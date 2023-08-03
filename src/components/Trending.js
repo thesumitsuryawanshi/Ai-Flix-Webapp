@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getFirestore, collection, onSnapshot, updateDoc, doc } from 'firebase/firestore';
-import { initializeApp } from 'firebase/app';
 import Card from '../reddit_Components/Card';
 
 export default function Trending() {
     const firebaseConfig = {
-        apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",
-        authDomain: "disney-plus-clone-1abfb.firebaseapp.com",
-        projectId: "disney-plus-clone-1abfb",
-        storageBucket: "disney-plus-clone-1abfb.appspot.com",
-        messagingSenderId: "205160206542",
-        appId: "1:205160206542:web:f6048e6806d51bab6a409f",
-        measurementId: "G-BQXJBF4HVM",
+      apiKey: "AIzaSyDuoPwHRZ_T5IcivnhBcel1guYgcUe0dJ0",
+      authDomain: "ai-flix-678f3.firebaseapp.com",
+      projectId: "ai-flix-678f3",
+      storageBucket: "ai-flix-678f3.appspot.com",
+      messagingSenderId: "393754793668",
+      appId: "1:393754793668:web:c5f14ac85f353701c55b91"
       };
 
-  initializeApp(firebaseConfig);
+
   const db = getFirestore();
   const colRef = collection(db, 'Trending');
 
@@ -83,7 +81,7 @@ export default function Trending() {
     <Content>
       {TrendingData.map((doc, index) => (
         <div key={doc.id}>
-          <Card
+          <Card asd
             title={doc.title}
             videoUrl={doc.videoUrl}
             desc={doc.desc}
