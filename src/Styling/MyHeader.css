@@ -1,0 +1,90 @@
+/* MyHeader.css */
+.header-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+font-family: 'Courier New', Courier, monospace;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 250px;
+  height: 110px;
+  margin-right: 50px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  border-radius: 20px;
+  transform: scale(1.05);
+  padding: 15px;
+  margin: 0 15px;
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-menu a:hover {
+  color: #f8f8f7;
+  
+}
+
+.icon {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.sign-out-container {
+  display: flex;
+  flex: content;
+  justify-content: end;
+font-family: 'Courier New', Courier, monospace;
+}
+
+.sign-out-button {
+    font-family: 'Courier New', Courier, monospace;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.sign-out-button:hover {
+ color: #fcfcfc;
+ border-radius: 20px;
+ transform: scale(1.05);
+ padding: 15px;
+ margin: 0 15px;
+ background-color: #e21515;
+
+}
+
+
+.nav-menu li:hover {
+  background-color: #e21515;
+  transform: scale(1.05);
+}

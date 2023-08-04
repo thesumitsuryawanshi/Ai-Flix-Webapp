@@ -1,5 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import coverImg from '../assets/Grid_Images/Cover_Image.png';
+
+import AC_final from '../assets/Grid_Images/AC-final.jpg';
+import NS_fotor from '../assets/Grid_Images/NS-fotor.png';
+import PH_fotor from '../assets/Grid_Images/PH-fotor.png';
+
+import QN_fotor from '../assets/Grid_Images/QN-fotor.png';
+import SS_fotor from '../assets/Grid_Images/SS-fotor.png';
+import WA_fotor from '../assets/Grid_Images/WA-fotor.png';
+
+import KOALA from '../assets/Grid_Images/Koala-fotor.png';
+import Cubie from '../assets/Grid_Images/Cubie.png';
+import Machine from '../assets/Grid_Images/Machine.png';
 
 
 const Stream_Exclusive = () => {
@@ -9,23 +22,24 @@ const Stream_Exclusive = () => {
     <>
       <Section>
         <Container>
-          <Tittle>
-            <h1 className='disney-tittles'>Ai-Flix</h1>
-            <p>An Flawless Creation of Webseries & Movies by Artificial intelligence <br/> & <br/> there collection only on Ai-Flix.</p>
+          <Tittle style={{ marginBottom: '100px' }}>
+          <img src={coverImg}  height= '160px' width= '990px' alt='grid/img' />
+            {/* <h2 className='disney-tittles'>Ai-Flix</h2> */}
+        {/* ?    <p>An Flawless Creation of Webseries & Movies by Artificial intelligence <br/> & <br/> there collection only on Ai-Flix.</p> */}
           </Tittle>
+
           <GridImg>
-          <Image ><img src='https://drive.google.com/uc?id=1nVl9d8GCfDhFzIu-G4H9DiEoCTJbfpH7' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1Ko0laxDg7WAbg8MURgnDn18Xfbt_npz4' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1KdxEsAaMz9MWbxsRlIwXM_qufH3vW3-C' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1GG_-jlrHMkCv5ua0UkgPo5ryMsJDuSBb' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1KivzxUfsyGpBjtzC-r8LeAt8Q3essPvw' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1m1LOLa29JER4o_qgRe-Uh7PE18hHTLJ-' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1KlLNjH6qCH9a3vUz2xx6iboX78gd_Iac' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1FU2tUlM-Lm_9GvGFaB4ubvuMRKSWSVhI' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1KjodMaJRBwE_fWiAap3ziR98KLkswtdi' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1-_K_Ilf0hhenIYp5PUygrvVUPR8i8Red' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1c5b87s40Ol_VJHykk4KGAYvVB_hzseU5' alt='grid/img' /></Image>
-          <Image ><img src='https://drive.google.com/uc?id=1KqAs4Ike2s6GoBZw5z-6frFq7Dc1_OxF' alt='grid/img' /></Image>
+          <Image ><img src={AC_final} alt='grid/img' /></Image>
+          <Image ><img src={NS_fotor} alt='grid/img' /></Image>
+          <Image ><img src={PH_fotor} alt='grid/img' /></Image>
+
+          <Image ><img src={QN_fotor} alt='grid/img' /></Image>
+          <Image ><img src={SS_fotor} alt='grid/img' /></Image>
+          <Image ><img src={WA_fotor} alt='grid/img' /></Image>
+
+          <Image ><img src={KOALA} alt='grid/img' /></Image>
+          <Image ><img src={Cubie} alt='grid/img' /></Image>
+          <Image ><img src={Machine} alt='grid/img' /></Image>
           </GridImg>
         </Container>
       </Section>
@@ -42,7 +56,10 @@ const Section = styled.section`
 
 const Container = styled.div`
   width: 95%;
-  margin: 0 auto;
+---------------------------------------------
+
+
+  padding:150px
 `;
 
 const Tittle = styled.div`
@@ -61,7 +78,8 @@ const Tittle = styled.div`
 const GridImg = styled.div`
   display: grid;
   gap: 15px 25px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   @media screen and (max-width: 991px){
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -70,17 +88,16 @@ const GridImg = styled.div`
 const Image = styled.div`
 
   width: 100%;
-  padding: 0;
+  padding: 100px;
   border-radius: 0.24rem;
   box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
   rgb(0 0 0 /73%) 0px 16px 10px -10px;
-
 
   img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 0.24rem;
+    border-radius: 1.65rem;
   }
 
 

@@ -57,7 +57,7 @@ export default ImgSlider
 
 const Carousel = styled(Slider)`
     cursor: pointer;
-    margin-top: 20px;
+    margin-bottom: 10px;
 
 
     ul li button {
@@ -79,13 +79,14 @@ const Carousel = styled(Slider)`
 `
 
 const Warp = styled.div`
-
-
     img{
         border: 4px solid transparent;
-        border-radius: 4px;
+        border-radius: 5px;
+        
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
+        height: 650px;
         box-shadow: rgba(0 0 0 /69%) 0px 26px 30px -10px,
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
         transition-duration: 300ms;
