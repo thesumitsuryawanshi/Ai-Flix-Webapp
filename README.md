@@ -13,7 +13,7 @@
 
 ![image](https://github.com/thesumitsuryawanshi/Ai-Flix-Webapp/assets/58788722/7a1b8e1f-34d4-4638-a9b2-b963dcf68264)
 
-## <a href="https://disney-plus-clone-976a1.web.app" target="_blank">LIVE DEMO 💥</a>
+## <a href="https://ai-flix-678f3.web.app/" target="_blank">LIVE DEMO 💥</a>
 
 
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
@@ -115,7 +115,7 @@ Install dependencies
 Clone the project
 
 ```bash
-  git clone [https://github.com/SashenJayathilaka/Disney-Plus-Clone.git](https://github.com/thesumitsuryawanshi/Ai-Flix-Webapp.git)
+  git clone [https://github.com/thesumitsuryawanshi/Ai-FliX.git](https://github.com/thesumitsuryawanshi/Ai-FliX.git)
 ```
 
 Install dependencies
