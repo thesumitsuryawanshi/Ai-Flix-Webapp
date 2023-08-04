@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
-import { initializeApp } from "firebase/app";
 import {
   getFirestore,
   collection,
@@ -14,16 +13,16 @@ import Card from "../reddit_Components/Card";
 
 function Movies() {
   const firebaseConfig = {
-    apiKey: "AIzaSyAKA7_6wjny6zUBkEPEkrP0QD_hpkFf15c",
-    authDomain: "disney-plus-clone-1abfb.firebaseapp.com",
-    projectId: "disney-plus-clone-1abfb",
-    storageBucket: "disney-plus-clone-1abfb.appspot.com",
-    messagingSenderId: "205160206542",
-    appId: "1:205160206542:web:f6048e6806d51bab6a409f",
-    measurementId: "G-BQXJBF4HVM",
+    apiKey: "AIzaSyDuoPwHRZ_T5IcivnhBcel1guYgcUe0dJ0",
+    authDomain: "ai-flix-678f3.firebaseapp.com",
+    projectId: "ai-flix-678f3",
+    storageBucket: "ai-flix-678f3.appspot.com",
+    messagingSenderId: "393754793668",
+    appId: "1:393754793668:web:c5f14ac85f353701c55b91",
   };
+  // initializeApp(firebaseConfig);
 
-  initializeApp(firebaseConfig);
+
   const db = getFirestore();
   const colRef = collection(db, "Movies");
 
@@ -94,7 +93,7 @@ function Movies() {
           .map((doc, index) => (
             <div key={doc.id}>
               <CardStyling>
-                <Card
+                <Card 
                   title={doc.title}
                   videoUrl={doc.videoUrl}
                   desc={doc.desc}
@@ -116,8 +115,7 @@ const Container = styled.div`
   padding: 0 0 26px;
 `;
 
-const CardStyling = styled.div`
-`;
+const CardStyling = styled.div``;
 
 const Content = styled.div`
   display: grid;
