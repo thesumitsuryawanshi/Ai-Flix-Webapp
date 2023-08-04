@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyDuoPwHRZ_T5IcivnhBcel1guYgcUe0dJ0",
   authDomain: "ai-flix-678f3.firebaseapp.com",
+  databaseURL: "https://ai-flix-678f3-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "ai-flix-678f3",
   storageBucket: "ai-flix-678f3.appspot.com",
   messagingSenderId: "393754793668",
@@ -39,4 +40,4 @@ const firebaseConfig = {
 //   messagingSenderId: "205160206542",
 //   appId: "1:205160206542:web:f6048e6806d51bab6a409f",
 //   measurementId: "G-BQXJBF4HVM"
-// };
+// };a
