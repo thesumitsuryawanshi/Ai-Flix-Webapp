@@ -99,6 +99,7 @@
 Install my-project with npm
 ```
 npx create-react-app Ai-Flix App
+
 ```
 ```
 cd Ai-Flix App
@@ -115,7 +116,7 @@ Install dependencies
 Clone the project
 
 ```bash
-  git clone [https://github.com/thesumitsuryawanshi/Ai-FliX.git](https://github.com/thesumitsuryawanshi/Ai-FliX.git)
+  git clone https://github.com/thesumitsuryawanshi/Ai-FliX.git
 ```
 
 Install dependencies
